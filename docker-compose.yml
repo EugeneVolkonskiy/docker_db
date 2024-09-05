@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  client-backend:
+    build:
+      context: ./product
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - service-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://service-db:5432/docker_db
+
+  service-db:
+    image: postgres:14.7-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=docker_db
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+
+volumes:
+  db-data:

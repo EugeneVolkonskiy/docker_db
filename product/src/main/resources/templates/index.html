@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <script th:src="@{/js/code.jquery.com_jquery-3.7.0.min.js}"></script>-->
+<!--    <script th:src="@{/js/bootstrap.min.js}"></script>-->
+<!--    <title>PRODUCT</title>-->
+<!--</head>-->
+<body>
+<div class="container-fluid p-0">
+    <div class="container">
+        <form class="mt-3" th:action="@{/create}" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="product" class="form-label"><b>Название товара</b></label>
+                <input type="text" class="form-control" id="product" name="name"
+                       placeholder="Введите название товара" required>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6"></div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6"><a class="btn btn-danger w-100" th:href="@{/index}">Отмена</a></div>
+                        <div class="col-6">
+                            <button class="btn btn-primary w-100" type="submit">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
